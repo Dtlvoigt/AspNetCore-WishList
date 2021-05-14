@@ -19,8 +19,8 @@ namespace WishList.Controllers
 
         public IActionResult Index()
         {
-            List<Item> items = _context.Items.ToList();
-            var model = items;
+            //List<Item> items = 
+            var model = _context.Items.ToList();
             return View("Index", model);
         }
 
@@ -36,7 +36,7 @@ namespace WishList.Controllers
             _context.Items.Add(item);
             _context.SaveChanges();
             
-            return RedirectToAction("./Index");
+            return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int Id)
@@ -45,7 +45,7 @@ namespace WishList.Controllers
             _context.Items.Remove(item);
             _context.SaveChanges();
             
-            return RedirectToAction("./Index");
+            return RedirectToAction("Index");
         }
     }
 }
